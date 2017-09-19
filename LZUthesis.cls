@@ -1,14 +1,14 @@
-\NeedsTeXFormat{LaTeX2e}
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 
 \ProvidesClass{LZUthesis}[2017/9/10 V0.1 Thesis for LZUer]
-
-\LoadClass[cs4size, a4paper，UTF8, chinese,openany, hyperref]{ctexbook}
+\LoadClass[cs4size, a4paper, UTF8, openany, hyperref, chinese,oneside]{ctexbook}
 \AtEndOfPackage{\input{LZU.cfg}}  %很关键的一个文件
 
 
 %=======footnote
+%尾注
+%=======footnote
 \RequirePackage[perpage, bottom]{footmisc}
-
 
 %%=======page
 %页面边距
@@ -25,16 +25,18 @@
 %=======package
 \RequirePackage{amsmath,amsfonts,amssymb}
 \RequirePackage{graphicx}
+\graphicspath{{figures/}{figure/}{pictures/}
+      {picture/}{pic/}{pics/}{image/}{images/}}
 \RequirePackage[svgnames]{xcolor}
 \RequirePackage{mathptmx}% %Times New Roman字体
 \RequirePackage{float}%控制图片位置 参数H
 \setCJKfamilyfont{yahei}{微软雅黑}
 \RequirePackage[T1]{fontenc}
 
+\RequirePackage{booktabs}
+
 %=======head and foot
 %页眉页脚
-
-
 %=======head and foot
 \RequirePackage{fancyhdr}  % Needed to define custom headers/footers
 \RequirePackage{lastpage}  % Number of pages in the document
@@ -63,11 +65,7 @@
     % Footers
     \fancyfoot{} % clear all footer fields
     \fancyfoot[LE,RO]{\thepage}
- %   \ifdefined\LZU@doublelines
     \renewcommand\headrule{\hrule width \hsize height 2pt \kern 2pt \hrule width \hsize height 0.4pt}
- %   \else
- %   \renewcommand{\headrulewidth}{0.4pt}
- %   \fi
 }
 
 \appto\mainmatter{\pagestyle{mainmatterstyle}}
@@ -76,42 +74,44 @@
     \thispagestyle{mainmatterstyle}
 }
 \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{frontmatterstyle}}}
+
+
+
 %=======format
 %标题样式
-
+%
 %=======format
-
 \usepackage[font=small]{caption}
 
 \RequirePackage[titles]{tocloft}
-\renewcommand\cftchapdotsep{0.5} %虚线间隔
-\renewcommand\cftdotsep{0.5} %虚线间隔
-%\renewcommand{\cftchapafterpnum}{\vspace{6pt}}%章节间隔 ，节前6磅
-\setlength{\cftbeforesecskip}{6pt}%章节间隔 ，节前6磅
+\renewcommand\cftchapdotsep{0.5} 				%虚线间隔
+\renewcommand\cftdotsep{0.5} 					%虚线间隔
+%\renewcommand{\cftchapafterpnum}{\vspace{6pt}} %章节间隔 ，节前6磅
+\setlength{\cftbeforesecskip}{6pt}				%章节间隔 ，节前6磅
 \renewcommand\cftchapfont{\zihao{4}}
 \renewcommand\cftsecfont{\zihao{-4}}
 \renewcommand\cftsubsecfont{\zihao{-4}}
 \renewcommand\cftchappagefont{\mdseries}
 \setlength\cftbeforetoctitleskip{24pt}
 \setlength\cftaftertoctitleskip{18pt}
-%%=======information
+
+
 
 %%=======information
-
-
+% 标题页信息
+%
+%%=======information
 \newtoks\advisor
 \newtoks\college
 \newtoks\major
 \newtoks\grade
-
-\newtoks\titlextra
+\newtoks\titlextra %标题多余一行时添加
 %=======english title
 \newtoks\entitle
-
+\newtoks\entitletra %标题多余一行时添加
 %%=======statement
 %标题页
 %需要添加循环函数，判定多于一行的情况
-%
 %%=======statement
 
 \RequirePackage{array}
@@ -142,8 +142,12 @@
         \begin{tabular}{ll}
             {\bfseries \songti \LZU@label@titleZh}&
 			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\@title}}\\[0.40cm]
-            {\bfseries \songti \LZU@label@titleEn}&
+%			{}&																				%多于一行时取消注释
+%			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\@titlextra}}\\[0.40cm]     	%多于一行时取消注释
+            {\bfseries \songti \LZU@label@titleEn}&											
 			{\LZUunderline[258pt]{\bfseries \zihao{3}\the\entitle}}\\[0.40cm]
+%			{}&																				%多于一行时取消注释
+%			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\entitletra}}\\[0.40cm]		%多于一行时取消注释
             {\bfseries \songti \LZU@label@author} &
             {\LZUunderline[258pt]{\bfseries \songti \zihao{-3}\@author}}\\[0.40cm]
             {\bfseries \songti \LZU@label@advisor} &
@@ -215,6 +219,9 @@
 
 
 %=======abstract
+%摘要页
+%
+%=======abstract
 \newcommand{\ZhAbstract}[2]{%
     \phantomsection
     \addcontentsline{toc}{chapter}{中文摘要}
@@ -279,12 +286,14 @@
 
 
 %=======appendix
+%附录页和感谢页
+%
+%=======appendix
 \newcommand{\Appendix}{%
     \setcounter{section}{0}
     \renewcommand{\thechapter}{A}%
 	\addcontentsline{toc}{chapter}{附\qquad 录}
     \chapter*{附 \LZUspace\LZUspace 录}
-
     \zihao{5}
 }
 
@@ -294,7 +303,7 @@
     \zihao{-4}\fangsong
 }
 %---------------------------
-%hyperlink
+%超链接
 %---------------------------
 \RequirePackage[unicode,psdextra]{hyperref} % Required for hyperlinks
 \hypersetup{hidelinks,breaklinks=true,bookmarksopen=false}
@@ -322,11 +331,11 @@
 %论文成绩
 %---------------------------
 \RequirePackage{tabularx}
-\newcommand{\supervisorcomment}{}
-\newcommand{\recommendedgrade}{}
-\newcommand{\supervisorsignature}{}
-\newcommand{\committeecomment}{}
-\newcommand{\finalgrade}{}
+\newtoks \supervisorcomment
+\newtoks \recommendedgrade
+\newtoks \supervisorsignature
+\newtoks \committeecomment
+\newtoks \finalgrade
 \newcommand{\Grade}{
 \clearpage
 \phantomsection
@@ -338,27 +347,29 @@
         \hline
         导师评语\\%
         \centerline{%
-            \begin{minipage}[t][9cm][t]{0.92\textwidth}
+            \begin{minipage}[t][10cm][t]{0.92\textwidth}
                 \setlength\parindent{\ccwd}
-                \zihao{-4} \rm \supervisorcomment   
+                \zihao{-4} \the \supervisorcomment   
             \end{minipage}}\\
-        建议成绩\LZUunderline[80pt]{\rm \recommendedgrade}\hfill 指导教师（签字）\LZUunderline[100pt]{\supervisorsignature}\\
+        建议成绩\LZUunderline[80pt]{\the \recommendedgrade}\hfill 指导教师（签字）\LZUunderline[80pt]{
+\the \supervisorsignature}\\
         \hline
         答辩小组意见\\
 \centerline{%
             \begin{minipage}[t][2cm][t]{0.92\textwidth}
                 \setlength\parindent{\ccwd}
-                \zihao{-4} \rm \committeecomment
+                \zihao{-4} \the\committeecomment
             \end{minipage}}
-        \hfill 答辩委员会负责人（签字）\underline{\hspace{130pt}}\\
+        \hfill 答辩委员会负责人（签字）\underline{\hspace{80pt}}\\
         \hline
         \\[2.3cm]
-        成绩\LZUunderline[80pt]{\rm \finalgrade}\hfill 学院（盖章）\underline{\hspace{80pt}}\\
+        成\LZUspace\LZUspace 绩\LZUunderline[80pt]{\the \finalgrade}\hfill 学院（盖章）\underline{\hspace{80pt}}\\
         \hfill{\zihao{-4}年\hspace{20pt}月\hspace{20pt}日}\\
         \hline
     \end{tabularx}
 \end{center}
 }
+
 
 
 %\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{frontmatterstyle}}}
@@ -372,7 +383,10 @@
 
 
 
-%math theorem
+%======%math theorem
+% 英文名称改为汉字
+%
+%======%math theorem
 \RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
 \theorembodyfont{\rmfamily\songti}
 \theoremheaderfont{\rmfamily\heiti}
@@ -404,15 +418,26 @@
 \crefname{conjecture}{猜想}{猜想}
 
 
+
+%---------------------------
+%程序伪代码实现
+%---------------------------
+\RequirePackage{algorithm}
+\RequirePackage{algorithmic}
+\floatname{algorithm}{算法}  
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}  
+\renewcommand{\algorithmicensure}{\textbf{输出:}}  
+  
 %改变图表的编号格式
 \renewcommand{\thefigure}{\thechapter-\@arabic\c@figure}
 \renewcommand{\thetable}{\thechapter-\@arabic\c@table}   
 
-%=======%
+
+%%=======%
 %参考文献
 %=======%
 \newtoks\bibdatabase
-\RequirePackage{bibentry}
+\RequirePackage{ }
 \newcommand{\printbib}{
 \zihao{5}
 \bibliographystyle{lzubib}

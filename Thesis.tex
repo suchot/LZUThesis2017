@@ -1,0 +1,269 @@
+% !TEX TS-program = Xelatex
+% !TEX encoding = UTF-8 Unicode
+\documentclass{LZUthesis}
+\begin{document}
+%=====%
+%
+%封皮页填写内容
+%
+%=====%
+
+\title{兰州大学本科生学位论文模板简介}
+\entitle{The Template of LZU Thesis }
+\author{胡斌}
+\major{核科学与技术学院}
+\advisor{胡斌}
+\college{兰州大学}
+\grade{2013级}
+
+
+
+\maketitle
+
+%======%
+%诚信说明页
+%授权说明书
+%======%
+\makestatement
+
+
+
+\frontmatter
+%中文摘要
+\ZhAbstract{这里写中文摘要}{中文；摘要；关键词}
+%英文摘要
+\EnAbstract{you can write your English abstract in there }{English, Abstract}
+\tableofcontents
+\mainmatter
+\chapter{兰州大学 \LaTeX 模板}
+
+\section{Why \LaTeX ? }
+为了方便兰州大学本科生将更多的时间集中于论文的内容当中，而不是在格式的调节上浪费时间。\LaTeX{}提供了一个很好的方式。\LaTeX{}具有很多优点就不说了，大家可以多用用。有什么问题联系 sfysqd@gmail.com。能解答一定解答。
+\par 下文就是简单的版式，与兰州大学毕业论文写作规范.doc中要求一致。若有不同请掷信与我。
+\chapter{一级标题}
+\section{二级标题}
+\subsection{三级标题}
+\chapter{系统配置}
+正确编译需要以下几个部分
+\begin{itemize}
+
+\item 一个基本的TEx发行版
+\item CJK或XeCJK（供\LaTeX ）宏包
+\item ctex宏包（提供ctexbook文档).
+\item 中文字体
+\item 如果要使用 biblatex 进行文献列表和引用的排版的话， 还需要 biblatex 宏包(内含LZU论文引用样式）
+\end{itemize}
+\chapter{模板使用}
+\section{模板文件结构\label{sec:files}}
+整个模板根目录的文件列表如下：
+
+\begin{tabular}{|l|l|l|}
+\hline
+LZUthesis.cls & ---LZUthesis宏包 & \textcolor{red}{{*}}\\
+\hline
+LZUthesis.cfg & ---LZUthesis宏包配置文件 & \textcolor{red}{{*}}\\
+\hline
+lzubib.bst & ---引文样式文件 & \textcolor{red}{{*}}\\
+\hline
+bib/database.bib & ---bib数据库 & \textcolor{red}{{*}}\\
+\hline
+figures/lzu.eps & ---兰州大学校名标准字 & \textcolor{red}{{*}}\\
+\hline
+Thesis.tex & ---\TeX{}模板介绍文件 &\textcolor{red}{{*}}\\
+\hline
+template.tex & ---\TeX{}样例文件 &\textcolor{red}{{*}}\\
+\hline
+Makefile & ---Makefile文件 & -\\
+\hline
+lzubib.bst & ---符合兰州大学引文样式文件 & -\\
+\hline
+\end{tabular}
+
+注： \textcolor{red}{{*}} 表示\LaTeX{}模板必须的文件。
+
+\section{依赖}
+LZUthesis依赖于以下宏包，这些宏包在常见的latex发行版中都包括，在安装使用之前，请确定你的\TeX{}发行版中都已正常安装这些宏包
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+	\hline
+	{footmisc} &  {amsmath} &  {amsfonts} &  {amssymb} \\
+
+    {graphicx} &  {svgnames} &  {xcolor} &  {mathptmx} \\
+
+    {float} &  {fontenc} &  {fancyhdr} &  {lastpage} \\
+
+    {etoolbox} &  {fancy} &  {caption} &  {array} \\
+
+    {makecell} &  {forloop} &  {xstring} &  {hyperref} \\
+
+    {tabularx} &  {enumitem} &  {ntheorem} &  {algorithm}\\
+
+    {algorithmic} &  {bibentry} &  {xeCJK} &  {CJK} \\
+   \hline
+ \end{tabular}
+\end{table}
+ 如果你尚未安装这些宏包，可以启动你的 \TeX{} 发行版的宏包管理器
+ 来安装；或者到 \url{http://www.ctan.org} 上搜索下载并安装。
+\section{基本设置}
+\begin{enumerate}
+\item 图片搜索路径默认设置为模板根目录下的figures/。
+\item bib数据库默认设置为模板根目录下的bib/database.bib。 其中bib文件可由任意文献库管理软件自动生成
+\end{enumerate}
+
+
+\section{示例}
+论文中最常使用的一些功能在本节中给出示例。
+
+\subsection{公式}
+\begin{equation}
+\hat{H}=\frac{\epsilon}{2}\hat{\sigma}_{z}-\frac{\Delta}{2}\hat{\sigma}_{x}+\sum_{k}\omega_{k}\hat{b}_{k}^{\dagger}\hat{b}_{k}+\sum_{k}\frac{g_{k}}{2}\hat{\sigma}_{z}(\hat{b}_{k}+\hat{b}_{k}^{\dagger})\label{eq:sbm}
+\end{equation}
+
+
+\subsection{表格}
+\begin{table}[H]
+\begin{centering}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Alpha & Beta & Gamma & Delta & Theta\\
+\hline
+$\alpha$ & $\beta$ & $\gamma$ & $\delta$ & $\theta$\\
+\hline
+$A$ & $B$ & $\Gamma$ & $\Delta$ & $\Theta$\\
+\hline
+\end{tabular}
+\par\end{centering}
+\protect\caption{希腊字母表\label{tab:Greek}}
+\end{table}
+
+
+\subsection{图形}
+
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.618\textwidth]{lzu.bmp}\\
+\end{centering}
+\protect\caption{兰州大学校名标准字\label{fig:lzu}}
+\end{figure}
+
+\subsection{引用}
+\subsubsection{交叉引用}
+
+对所有需要引用的公式、表格、图形，执行插入--标签后，即可使用插入-- 交叉引用自动产生引用。
+\begin{itemize}
+\item 哈密顿量见方程~(\ref{eq:sbm})。
+\item 希腊字母表见表~\ref{tab:Greek}。引用格式与方程引用格式不同
+\item 校名标准字如图~\ref{fig:lzu}。 引用格式与方程引用格式不同
+\end{itemize}
+
+
+\subsubsection{文献引用}
+
+将引文的bib数据库(默认文件名为thesis.bib)放入模板根目录下的bib 文件夹，即可通过插入--文献引用自动产生引文。
+\begin{itemize}
+\item Journal：An article \cite{Liu13PRA-A}。
+\item Book：C\TeX{} FAQ \cite{Wu05-C}。
+\end{itemize}
+
+\subsection{伪代码实现}
+
+\begin{algorithm}
+  \caption{放进冰箱的大象}
+  \label{算法实例}
+  \begin{algorithmic}
+  \REQUIRE 有一只大象
+  \ENSURE 放进冰箱里
+   \FOR {没有剩余的大象}
+   \IF {大象比冰箱大}
+     \STATE 把大象分割
+        \ENDIF
+    \ENDFOR
+   \STATE 第一步
+  \STATE 第二步
+  \STATE 第三步
+  \end{algorithmic}
+\end{algorithm}
+
+
+\subsection{MAKEFILE}
+
+makefile仅限\LaTeX{}模板编译使用，适合Linux和Mac用户使用。
+\begin{enumerate}
+\item make：只编译源文件，快速调试用。
+\item make ref：包含引用的完整编译。
+\item make clean：清除临时文件。
+\end{enumerate}
+
+\chapter{简单帮助}
+\section{文字命令}
+ \subsection{常用命令}
+ latex提供了一系列命令，用于修改字体、字号、数字等的呈现形式。
+\subsubsection{字体}
+\begin{verbatim}
+ 宋体： \songti，启用宋体。
+
+ 黑体：  \heiti，启用黑体。
+
+ 仿宋：  \fangsong，启用仿宋。
+
+ 楷书： \kaishu，启用楷书。
+
+
+\end{verbatim}
+
+\subsubsection{字号}
+
+\begin{center}
+ \begin{tabular}{cccccccc}
+ \toprule
+ 初号 & 小初 & 一号 & 小一 & 二号 & 小二 & 三号 & 小三 \\
+ 0 & -0 & 1 & -1 & 2 & -2 & 3 & -3 \\
+ \hline
+ 四号 & 小四 & 五号 & 小五 & 六号 & 小六 & 七号 & 八号 \\
+ 4 & -4 & 5 & -5 & 6 & -6 & 7 & 8 \\
+ \bottomrule
+ \end{tabular}
+ \end{center}
+
+
+
+\backmatter
+
+%=======%
+%引入参考文献文件
+%=======%
+\bibdatabase{bib/database}%bib文件名称
+\printbib
+
+
+
+
+\Appendix
+
+\section{附录}这里是附录页，附上你的程序或必要的相关知识\cite{silva2013brain}
+
+
+
+\Thanks
+这里是致谢页，你可以在这里致谢你的舍友，老师，朋友，或者我。
+
+%=====%
+%论文（设计）成绩
+%=====%
+\supervisorcomment{导师评价你人很好}
+\recommendedgrade{80}
+
+
+\supervisorsignature{
+    \raisebox{-10pt}{
+        \includegraphics[width=60pt]{signature.pdf}
+    }
+}
+
+ \committeecomment{0}
+ \finalgrade{0}
+
+\Grade
+\end{document}

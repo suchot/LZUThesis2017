@@ -1,0 +1,87 @@
+% !TEX TS-program = Xelatex
+% !TEX encoding = UTF-8 Unicode
+\documentclass{LZUthesis}
+\begin{document}
+%=====%
+%
+%封皮页填写内容
+%
+%=====%
+
+\title{兰州大学本科生学位论文模板简介}
+\entitle{The Template of LZU Thesis }
+\author{胡斌}
+\major{核科学与技术学院}
+\advisor{胡斌}
+\college{兰州大学}
+\grade{2013级}
+
+
+
+\maketitle
+
+%======%
+%诚信说明页
+%授权说明书
+%======%
+\makestatement
+\frontmatter
+
+
+
+
+%中文摘要
+\ZhAbstract{兰州大学是国家重点大学，成立于1909年，是中国有着悠久历史的大学之一。
+\par 兰州大学有美丽的校园、图书馆、各类实验室。兰州大学一直积极参与国际学术交流活动，是中国西北地区的教育和研究中心。通过计算机网络，兰州大学与世界的联系更加地快捷和紧密。
+}{兰州大学，重点大学，美丽的校园}
+%英文摘要
+\EnAbstract{Lanzhou University (LZU) is a key university in China. LZU was founded in 1909. It is one of the oldest universities in China. 
+\par LZU has beautiful campuses, Library, Various laboratories. It has been actively involved in international academic exchange programs.It is the center of China Education and Research Network in northwest China region, through computer networks, LTU has faster and closer connection with the world.
+}{LZU, key university，beautiful campus}
+
+%生成目录
+\tableofcontents
+\mainmatter
+\chapter{一级标题}
+\section{二级标题}
+\subsection{三级标题}
+
+\backmatter
+
+
+%=======%
+%引入参考文献文件
+%=======%
+\bibdatabase{bib/database}%bib文件名称
+\printbib
+
+
+
+
+\Appendix
+
+
+这里是附录页，附上你的程序或必要的相关知识\cite{partl2016一份不太简短的}
+
+{\bfseries 编译方式:} XeLaTeX --> BibTeX --> BibTeX --> XeLaTeX-->XeLaTeX
+\Thanks
+这里是致谢页，你可以在这里致谢你的舍友，老师，朋友，或者我。
+
+%=====%
+%论文（设计）成绩
+%=====%
+
+\supervisorcomment{导师评价你人很好}
+\recommendedgrade{80}
+
+
+\supervisorsignature{
+    \raisebox{-10pt}{
+        \includegraphics[width=60pt]{signature.pdf}
+    }
+}
+
+ \committeecomment{优秀}
+ \finalgrade{100}
+\Grade
+\end{document}
