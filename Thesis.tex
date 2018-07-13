@@ -38,7 +38,7 @@
 \chapter{兰州大学 \LaTeX 模板}
 
 \section{Why \LaTeX ? }
-为了方便兰州大学本科生将更多的时间集中于论文的内容当中，而不是在格式的调节上浪费时间。\LaTeX{}提供了一个很好的方式。\LaTeX{}具有很多优点就不说了，大家可以多用用。有什么问题联系 sfysqd@gmail.com。能解答一定解答。
+为了方便兰州大学本科生将更多的时间集中于论文的内容当中，而不是在格式的调节上浪费时间。\LaTeX{}提供了一个很好的方式。\LaTeX{}具有很多优点就不说了，大家可以多用用。有什么问题联系 bhu13@lzu.edu.cn.能解答一定解答。
 \par 下文就是简单的版式，与兰州大学毕业论文写作规范.doc中要求一致。若有不同请掷信与我。
 \chapter{一级标题}
 \section{二级标题}
@@ -57,15 +57,18 @@
 \section{模板文件结构\label{sec:files}}
 整个模板根目录的文件列表如下：
 
+\begin{center}
+
+
 \begin{tabular}{|l|l|l|}
 \hline
 LZUthesis.cls & ---LZUthesis宏包 & \textcolor{red}{{*}}\\
 \hline
-LZUthesis.cfg & ---LZUthesis宏包配置文件 & \textcolor{red}{{*}}\\
+LZU.cfg & ---LZU宏包配置文件 & \textcolor{red}{{*}}\\
 \hline
 lzubib.bst & ---引文样式文件 & \textcolor{red}{{*}}\\
 \hline
-bib/database.bib & ---bib数据库 & \textcolor{red}{{*}}\\
+bib/thesis.bib & ---bib数据库 & \textcolor{red}{{*}}\\
 \hline
 figures/lzu.eps & ---兰州大学校名标准字 & \textcolor{red}{{*}}\\
 \hline
@@ -73,12 +76,10 @@ Thesis.tex & ---\TeX{}模板介绍文件 &\textcolor{red}{{*}}\\
 \hline
 template.tex & ---\TeX{}样例文件 &\textcolor{red}{{*}}\\
 \hline
-Makefile & ---Makefile文件 & -\\
-\hline
 lzubib.bst & ---符合兰州大学引文样式文件 & -\\
 \hline
 \end{tabular}
-
+\end{center}
 注： \textcolor{red}{{*}} 表示\LaTeX{}模板必须的文件。
 
 \section{依赖}
@@ -108,7 +109,7 @@ LZUthesis依赖于以下宏包，这些宏包在常见的latex发行版中都包
 \section{基本设置}
 \begin{enumerate}
 \item 图片搜索路径默认设置为模板根目录下的figures/。
-\item bib数据库默认设置为模板根目录下的bib/database.bib。 其中bib文件可由任意文献库管理软件自动生成
+\item bib数据库默认设置为模板根目录下的bib/thesis.bib。 其中bib文件可由任意文献库管理软件自动生成
 \end{enumerate}
 
 
@@ -140,6 +141,13 @@ $A$ & $B$ & $\Gamma$ & $\Delta$ & $\Theta$\\
 
 \subsection{图形}
 
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.618\textwidth]{figure.jpg}\\
+\end{centering}
+\protect\caption{ 图片插入\label{fig:fig}}
+\end{figure}
+
 
 \begin{figure}[H]
 \begin{centering}
@@ -163,8 +171,8 @@ $A$ & $B$ & $\Gamma$ & $\Delta$ & $\Theta$\\
 
 将引文的bib数据库(默认文件名为thesis.bib)放入模板根目录下的bib 文件夹，即可通过插入--文献引用自动产生引文。
 \begin{itemize}
-\item Journal：An article \cite{Liu13PRA-A}。
-\item Book：C\TeX{} FAQ \cite{Wu05-C}。
+\item Journal：An article \cite{goossens1997latex}。
+\item Book：C\TeX{} FAQ\cite{lamport1994latex}。
 \end{itemize}
 
 \subsection{伪代码实现}
@@ -187,14 +195,6 @@ $A$ & $B$ & $\Gamma$ & $\Delta$ & $\Theta$\\
 \end{algorithm}
 
 
-\subsection{MAKEFILE}
-
-makefile仅限\LaTeX{}模板编译使用，适合Linux和Mac用户使用。
-\begin{enumerate}
-\item make：只编译源文件，快速调试用。
-\item make ref：包含引用的完整编译。
-\item make clean：清除临时文件。
-\end{enumerate}
 
 \chapter{简单帮助}
 \section{文字命令}
@@ -210,9 +210,9 @@ makefile仅限\LaTeX{}模板编译使用，适合Linux和Mac用户使用。
 
  楷书： \kaishu，启用楷书。
 
-
 \end{verbatim}
-
+ {\songti 宋体} {\heiti 黑体}    {\fangsong 仿宋}     {\kaishu 楷书}
+ 
 \subsubsection{字号}
 
 \begin{center}
@@ -226,7 +226,7 @@ makefile仅限\LaTeX{}模板编译使用，适合Linux和Mac用户使用。
  \bottomrule
  \end{tabular}
  \end{center}
-
+{\zihao{0}初号}; \dots {\zihao{4}四号}\dots \zihao{7}{七号}
 
 
 \backmatter
@@ -234,7 +234,8 @@ makefile仅限\LaTeX{}模板编译使用，适合Linux和Mac用户使用。
 %=======%
 %引入参考文献文件
 %=======%
-\bibdatabase{bib/database}%bib文件名称
+\bibdatabase{bib/thesis}%bib文件名称为替换你的bib文件 如bib/* 
+
 \printbib
 
 
@@ -242,8 +243,11 @@ makefile仅限\LaTeX{}模板编译使用，适合Linux和Mac用户使用。
 
 \Appendix
 
-\section{附录}这里是附录页，附上你的程序或必要的相关知识\cite{silva2013brain}
+\section{附录}这里是附录页，附上你的程序或必要的相关知识\cite{lamport1994latexa}
 
+{\bfseries 编译方式:}  XeLaTeX -->BibTeX --> XeLaTeX-->XeLaTeX(有使用bib文献管理）
+
+{\bfseries 编译方式:}  XeLaTeX-->XeLaTeX(未使用bib文献管理）
 
 
 \Thanks
@@ -262,7 +266,7 @@ makefile仅限\LaTeX{}模板编译使用，适合Linux和Mac用户使用。
     }
 }
 
- \committeecomment{0}
+ \committeecomment{我觉得可以。}
  \finalgrade{0}
 
 \Grade
