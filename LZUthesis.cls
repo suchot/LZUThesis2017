@@ -143,11 +143,11 @@
             {\bfseries \songti \LZU@label@titleZh}&
 			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\@title}}\\[0.40cm]
 %			{}&																				%多于一行时取消注释
-%			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\@titlextra}}\\[0.40cm]     	%多于一行时取消注释
+%			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\the\titlextra}}\\[0.40cm]     	%多于一行时取消注释
             {\bfseries \songti \LZU@label@titleEn}&											
 			{\LZUunderline[258pt]{\bfseries \zihao{3}\the\entitle}}\\[0.40cm]
 %			{}&																				%多于一行时取消注释
-%			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\entitletra}}\\[0.40cm]		%多于一行时取消注释
+%			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\\the\entitletra}}\\[0.40cm]		%多于一行时取消注释
             {\bfseries \songti \LZU@label@author} &
             {\LZUunderline[258pt]{\bfseries \songti \zihao{-3}\@author}}\\[0.40cm]
             {\bfseries \songti \LZU@label@advisor} &
