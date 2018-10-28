@@ -441,7 +441,7 @@
 \newcommand{\printbib}{
 \zihao{5}
 \bibliographystyle{unsrt}
-\bibliographystyle{lzubib}
+%\bibliographystyle{lzubib}
 \addcontentsline{toc}{chapter}{参考文献}
 \bibliography{\the \bibdatabase}
 }
