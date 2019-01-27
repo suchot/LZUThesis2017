@@ -86,7 +86,7 @@
 \RequirePackage[titles]{tocloft}
 \renewcommand\cftchapdotsep{0.5} 				%虚线间隔
 \renewcommand\cftdotsep{0.5} 					%虚线间隔
-%\renewcommand{\cftchapafterpnum}{\vspace{6pt}} %章节间隔 ，节前6磅
+\renewcommand{\cftchapafterpnum}{\vspace{6pt}} %章节间隔 ，节前6磅
 \setlength{\cftbeforesecskip}{6pt}				%章节间隔 ，节前6磅
 \renewcommand\cftchapfont{\zihao{4}}
 \renewcommand\cftsecfont{\zihao{-4}}
@@ -94,7 +94,6 @@
 \renewcommand\cftchappagefont{\mdseries}
 \setlength\cftbeforetoctitleskip{24pt}
 \setlength\cftaftertoctitleskip{18pt}
-
 
 
 %%=======information
@@ -116,8 +115,8 @@
 
 \RequirePackage{array}
 \def\LZU@underline[#1]#2{%
-    \CJKunderline{\hbox to #1{\hfill#2\hfill}}}
-\def\LZUunderline{\@ifnextchar[\LZU@underline\CTEXunderline}
+    \underline{\hbox to #1{\hfill#2\hfill}}}
+\def\LZUunderline{\@ifnextchar[\LZU@underline\underline}
 
 \RequirePackage{makecell}
 %\RequirePackage{pgffor}
@@ -142,12 +141,12 @@
         \begin{tabular}{ll}
             {\bfseries \songti \LZU@label@titleZh}&
 			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\@title}}\\[0.40cm]
-%			{}&																				%多于一行时取消注释
-%			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\the\titlextra}}\\[0.40cm]     	%多于一行时取消注释
+			{}&																				%多于一行时取消注释
+			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\the\titlextra}}\\[0.40cm]     	%多于一行时取消注释
             {\bfseries \songti \LZU@label@titleEn}&											
-			{\LZUunderline[258pt]{\bfseries \zihao{3}\the\entitle}}\\[0.40cm]
-%			{}&																				%多于一行时取消注释
-%			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\\the\entitletra}}\\[0.40cm]		%多于一行时取消注释
+			{\LZUunderline[258pt]{\bfseries\songti \zihao{3}\the\entitle}}\\[0.40cm]
+			{}&																				%多于一行时取消注释
+			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\the\entitletra}}\\[0.40cm]		%多于一行时取消注释
             {\bfseries \songti \LZU@label@author} &
             {\LZUunderline[258pt]{\bfseries \songti \zihao{-3}\@author}}\\[0.40cm]
             {\bfseries \songti \LZU@label@advisor} &
