@@ -231,7 +231,7 @@
         \begin{minipage}{0.8\textwidth}
             \linespread{1.3889}
             \centering
-            \zihao{3}\heiti\bfseries \noindent\@title%
+            \zihao{3}\heiti\bfseries \noindent\@title\the\titlextra%
         \end{minipage}
     \end{center}%
     \begin{center}%
@@ -260,7 +260,7 @@
             \linespread{1}
             \selectfont
             \centering
-            \zihao{3} \bfseries \noindent \expandafter\MakeUppercase\expandafter{\the\entitle}%
+            \zihao{3} \bfseries \noindent \expandafter\MakeUppercase\expandafter{\the\entitle\ \the\entitletra}%
         \end{minipage}
     \end{center}%
     \begin{center}%
