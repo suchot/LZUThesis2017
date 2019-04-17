@@ -1,9 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-
 \ProvidesClass{LZUthesis}[2017/9/10 V0.1 Thesis for LZUer]
 \LoadClass[cs4size, a4paper, UTF8, openany, hyperref, chinese,oneside]{ctexbook}
 \AtEndOfPackage{\input{LZU.cfg}}  %很关键的一个文件
-
+%                                          --基于 szsdk修改
+%  LZU.cls  ---thanks for  https://github.com/szsdk/LZUthesis/blob/master/LZU.cls
 
 %=======footnote
 %尾注
@@ -137,16 +137,21 @@
         \expandarg
         \newcounter{title_str_number}
         \vspace*{50pt}
-
         \begin{tabular}{ll}
-            {\bfseries \songti \LZU@label@titleZh}&
-			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\@title}}\\[0.40cm]
-			{}&																				%多于一行时取消注释
-			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\the\titlextra}}\\[0.40cm]     	%多于一行时取消注释
-            {\bfseries \songti \LZU@label@titleEn}&											
-			{\LZUunderline[258pt]{\bfseries\songti \zihao{3}\the\entitle}}\\[0.40cm]
-			{}&																				%多于一行时取消注释
-			{\LZUunderline[258pt]{\bfseries \songti \zihao{3}\the\entitletra}}\\[0.40cm]		%多于一行时取消注释
+            \bfseries \songti \LZU@label@titleZh
+            \forloop{title_str_number}{1}{\value{title_str_number}<6}{%
+                \StrFindGroup{\@title}{\value{title_str_number}}[\mygroup]%
+                \IfStrEq{\mygroup}{}{}{%
+                    & {\StrFindGroup{\@title}{\value{title_str_number}}[\mygroup]\LZUunderline[258pt]{\bfseries \songti\fontspec{Times New Roman}\zihao{3}\mygroup}}\\[0.40cm]%
+                }%
+            }%
+            \bfseries \songti \LZU@label@titleEn
+            \forloop{title_str_number}{1}{\value{title_str_number}<6}{%
+                \StrFindGroup{\the\entitle}{\value{title_str_number}}[\mygroup]%
+                \IfStrEq{\mygroup}{}{}{%
+                    & {\StrFindGroup{\the\entitle}{\value{title_str_number}}[\mygroup]\LZUunderline[258pt]{\fontspec{Times New Roman-Bold}\zihao{3}\mygroup}}\\[0.40cm]%
+                }%
+            }%
             {\bfseries \songti \LZU@label@author} &
             {\LZUunderline[258pt]{\bfseries \songti \zihao{-3}\@author}}\\[0.40cm]
             {\bfseries \songti \LZU@label@advisor} &
