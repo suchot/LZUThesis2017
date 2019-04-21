@@ -250,7 +250,7 @@
     \setlength{\parskip}{0pt}
     \vspace{10pt}
     \par #1\\\\%
-    {\songti \bfseries 关键词：} #2
+    {\songti \bf 关键词：} #2
     \newpage
 }
 
