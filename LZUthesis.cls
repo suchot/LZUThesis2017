@@ -444,8 +444,8 @@
 \RequirePackage{ }
 \newcommand{\printbib}{
 \zihao{5}
-\bibliographystyle{unsrt}
-%\bibliographystyle{lzubib}
+\bibliographystyle{lzubib}
+%\bibliographystyle{unsrt}
 \addcontentsline{toc}{chapter}{参考文献}
 \bibliography{\the \bibdatabase}
 }

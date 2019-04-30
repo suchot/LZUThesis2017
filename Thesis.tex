@@ -9,8 +9,8 @@
 %
 %=====%
 
-\title{兰州大学本科生学位论文模板简介}
-\entitle{The Template of LZU Thesis }
+\title{{兰州大学本科生学位论文模板简介}}
+\entitle{{The Template of LZU Thesis }}
 \author{胡斌}
 \major{核科学与技术学院}
 \advisor{胡斌}
@@ -47,7 +47,6 @@
 \chapter{系统配置}
 正确编译需要以下几个部分
 \begin{itemize}
-
 \item 一个基本的TEx发行版
 \item CJK或XeCJK（供\LaTeX ）宏包
 \item ctex宏包（提供ctexbook文档).
@@ -69,7 +68,7 @@ LZU.cfg & ---LZU宏包配置文件 & \textcolor{red}{{*}}\\
 \hline
 lzubib.bst & ---引文样式文件 & \textcolor{red}{{*}}\\
 \hline
-bib/thesis.bib & ---bib数据库 & \textcolor{red}{{*}}\\
+bib/database.bib & ---bib数据库 & \textcolor{red}{{*}}\\
 \hline
 figures/lzu.eps & ---兰州大学校名标准字 & \textcolor{red}{{*}}\\
 \hline
@@ -77,8 +76,7 @@ Thesis.tex & ---\TeX{}模板介绍文件 &\textcolor{red}{{*}}\\
 \hline
 template.tex & ---\TeX{}样例文件 &\textcolor{red}{{*}}\\
 \hline
-lzubib.bst & ---符合兰州大学引文样式文件 & -\\
-\hline
+
 \end{tabular}
 \end{center}
 注： \textcolor{red}{{*}} 表示\LaTeX{}模板必须的文件。
@@ -152,7 +150,7 @@ $A$ & $B$ & $\Gamma$ & $\Delta$ & $\Theta$\\
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.618\textwidth]{lzu.bmp}\\
+\includegraphics[width=0.618\textwidth]{lzu}\\
 \end{centering}
 \protect\caption{兰州大学校名标准字\label{fig:lzu}}
 \end{figure}
@@ -172,8 +170,8 @@ $A$ & $B$ & $\Gamma$ & $\Delta$ & $\Theta$\\
 
 将引文的bib数据库(默认文件名为thesis.bib)放入模板根目录下的bib 文件夹，即可通过插入--文献引用自动产生引文。
 \begin{itemize}
-\item Journal：An article \cite{goossens1997latex}。
-\item Book：C\TeX{} FAQ\cite{lamport1994latex}。
+\item Journal：An article \cite{partl2016}。
+\item conference：A conference\cite{tussyadiah2015hotels}。
 \end{itemize}
 
 \subsection{伪代码实现}
@@ -229,14 +227,14 @@ $A$ & $B$ & $\Gamma$ & $\Delta$ & $\Theta$\\
  \end{center}
 {\zihao{0}初号}; \dots {\zihao{4}四号}\dots \zihao{7}{七号}
 
-
+%论文后部
 \backmatter
+
 
 %=======%
 %引入参考文献文件
 %=======%
-\bibdatabase{bib/thesis}%bib文件名称为替换你的bib文件 如bib/* 
-
+\bibdatabase{bib/database}%bib文件名称 仅修改bib/ 后部分
 \printbib
 
 
@@ -244,15 +242,16 @@ $A$ & $B$ & $\Gamma$ & $\Delta$ & $\Theta$\\
 
 \Appendix
 
-\section{附录}这里是附录页，附上你的程序或必要的相关知识\cite{lamport1994latexa}
 
-{\bfseries 编译方式:}  XeLaTeX -->BibTeX --> XeLaTeX-->XeLaTeX(有使用bib文献管理）
+这里是附录页，附上你的程序或必要的相关知识\cite{partl2016}
+
+{\bfseries 编译方式:} XeLaTeX -->BibTeX --> XeLaTeX-->XeLaTeX
+
 
 {\bfseries 编译方式:}  XeLaTeX-->XeLaTeX(未使用bib文献管理）
-
-
 \Thanks
 这里是致谢页，你可以在这里致谢你的舍友，老师，朋友，或者我。
+
 
 %=====%
 %论文（设计）成绩
@@ -267,8 +266,7 @@ $A$ & $B$ & $\Gamma$ & $\Delta$ & $\Theta$\\
     }
 }
 
- \committeecomment{我觉得可以。}
- \finalgrade{0}
-
+ \committeecomment{优秀}
+ \finalgrade{100}
 \Grade
 \end{document}

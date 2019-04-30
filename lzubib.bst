@@ -841,6 +841,8 @@ FUNCTION {article}
   fin.entry
 }
 
+
+
 FUNCTION {booklet}
 { output.bibitem
   format.authors output
@@ -927,13 +929,13 @@ FUNCTION {inproceedings}
   format.title "[C]" * "title" output.check
   new.block
   crossref missing$
-    { format.in.ed.booktitle "booktitle" output.check
+    { %format.in.ed.booktitle "booktitle" output.check
       format.bvolume output
       %format.number.series output
       %format.pages output
       address empty$
     { organization publisher new.sentence.checkb
-      organization output
+      %organization output
       publisher output
       %format.date "year" output.check
       year output
@@ -943,7 +945,7 @@ FUNCTION {inproceedings}
       %format.date "year" output.check
       year output
       new.sentence
-      organization output
+      %organization output
       %publisher output
     }
       if$
