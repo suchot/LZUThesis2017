@@ -1108,6 +1108,21 @@ FUNCTION {unpublished}
   fin.entry
 }
 
+FUNCTION {online}
+{ output.bibitem
+  format.authors output
+  title howpublished new.block.checkb
+  format.title "[DB/OL]" * "title" output.check
+  howpublished new.block.checka
+  howpublished output
+  format.url output
+  format.date output
+  new.block
+  note output
+  fin.entry
+  empty.misc.check
+}
+
 FUNCTION {default.type} {article}
 
 MACRO {jan} {"January"}
