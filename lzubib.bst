@@ -334,7 +334,7 @@ FUNCTION {format.editors}
 FUNCTION {format.title}
 { title empty$
     { "" }
-    { "{\it " title "t" change.case$ * "}" * }
+    { "{ " title "t" change.case$ * "}" * }
   if$
 }
 
@@ -841,8 +841,6 @@ FUNCTION {article}
   fin.entry
 }
 
-
-
 FUNCTION {booklet}
 { output.bibitem
   format.authors output
@@ -928,24 +926,17 @@ FUNCTION {inproceedings}
   new.block
   format.title "[C]" * "title" output.check
   new.block
+  format.address.publisher output
+  new.block
   crossref missing$
-    { %format.in.ed.booktitle "booktitle" output.check
-      format.bvolume output
-      %format.number.series output
-      %format.pages output
+    { 
       address empty$
-    { organization publisher new.sentence.checkb
-      %organization output
-      publisher output
-      %format.date "year" output.check
+    { 
       year output
     }
-    { %address output.nonnull
-      format.address.publisher output  
-      %format.date "year" output.check
+    { 
       year output
       new.sentence
-      %organization output
       %publisher output
     }
       if$
@@ -963,6 +954,21 @@ FUNCTION {inproceedings}
 }
 
 FUNCTION {conference} { inproceedings }
+
+FUNCTION {online}
+{ output.bibitem
+  format.authors output
+  title howpublished new.block.checkb
+  format.title "[DB/OL]" * "title" output.check
+  howpublished new.block.checka
+  howpublished output
+  url output
+  format.date output
+  new.block
+  note output
+  fin.entry
+  empty.misc.check
+}
 
 FUNCTION {manual}
 { output.bibitem
@@ -1106,21 +1112,6 @@ FUNCTION {unpublished}
   note "note" output.check
   format.date output
   fin.entry
-}
-
-FUNCTION {online}
-{ output.bibitem
-  format.authors output
-  title howpublished new.block.checkb
-  format.title "[DB/OL]" * "title" output.check
-  howpublished new.block.checka
-  howpublished output
-  format.url output
-  format.date output
-  new.block
-  note output
-  fin.entry
-  empty.misc.check
 }
 
 FUNCTION {default.type} {article}
