@@ -229,8 +229,8 @@
 \newcommand{\ZhAbstract}[2]{%
     \phantomsection
     \addcontentsline{toc}{chapter}{中文摘要}
- %   \thispagestyle{frontmatterstyle}
-    \thispagestyle{empty}
+    \thispagestyle{frontmatterstyle}
+    % \thispagestyle{empty}
     \begin{center}%
         \setlength{\parskip}{24pt}
         \begin{minipage}{0.8\textwidth}
@@ -257,8 +257,8 @@
 \newcommand{\EnAbstract}[2]{%
     \phantomsection
     \addcontentsline{toc}{chapter}{英文摘要}
-    %\thispagestyle{frontmatterstyle}
-    \thispagestyle{empty}
+    \thispagestyle{frontmatterstyle}
+    % \thispagestyle{empty}
     \begin{center}%
         \setlength{\parskip}{24pt}
         \begin{minipage}{0.8\textwidth}
@@ -296,12 +296,16 @@
 \newcommand{\Appendix}{%
     \setcounter{section}{0}
     \renewcommand{\thechapter}{A}%
+\clearpage
+\phantomsection
 	\addcontentsline{toc}{chapter}{附\qquad 录}
     \chapter*{附 \LZUspace\LZUspace 录}
     \zihao{5}
 }
 
 \newcommand{\Thanks}{%
+\clearpage
+\phantomsection
 	\addcontentsline{toc}{chapter}{致\qquad 谢}
     \chapter*{致\LZUspace\LZUspace 谢}
     \zihao{-4}\fangsong
@@ -446,6 +450,8 @@
 \zihao{5}
 \bibliographystyle{lzubib}
 %\bibliographystyle{unsrt}
+\clearpage
+\phantomsection
 \addcontentsline{toc}{chapter}{参考文献}
 \bibliography{\the \bibdatabase}
 }
