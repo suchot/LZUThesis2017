@@ -48,7 +48,7 @@
     \renewcommand{\headrulewidth}{0pt}
 
     \fancyfoot{} % clear all footer fields
-    \fancyfoot[LE,RO]{\thepage} %
+    \fancyfoot[C]{\thepage} %
     \renewcommand{\thepage}{\Roman{page}}
 }
 \appto\frontmatter{\pagestyle{frontmatterstyle}}
@@ -64,7 +64,7 @@
     \rhead{\zihao{-5}\@title}
     % Footers
     \fancyfoot{} % clear all footer fields
-    \fancyfoot[LE,RO]{\thepage}
+    \fancyfoot[C]{\thepage}
     \renewcommand\headrule{\hrule width \hsize height 2pt \kern 2pt \hrule width \hsize height 0.4pt}
 }
 
@@ -230,7 +230,7 @@
     \phantomsection
     \addcontentsline{toc}{chapter}{中文摘要}
     \thispagestyle{frontmatterstyle}
-    % \thispagestyle{empty}
+   % \thispagestyle{empty}
     \begin{center}%
         \setlength{\parskip}{24pt}
         \begin{minipage}{0.8\textwidth}
@@ -294,8 +294,10 @@
 %
 %=======appendix
 \newcommand{\Appendix}{%
+
     \setcounter{section}{0}
     \renewcommand{\thechapter}{A}%
+
 \clearpage
 \phantomsection
 	\addcontentsline{toc}{chapter}{附\qquad 录}
