@@ -100,6 +100,7 @@ LZUthesis依赖于以下宏包，这些宏包在常见的latex发行版中都包
     {tabularx} &  {enumitem} &  {ntheorem} &  {algorithm}\\
 
     {algorithmic} &  {bibentry} &  {xeCJK} &  {CJK} \\
+        {listings} &  {courier} &  {} &  {} \\
    \hline
  \end{tabular}
 \end{table}
@@ -192,7 +193,35 @@ $A$ & $B$ & $\Gamma$ & $\Delta$ & $\Theta$\\
   \STATE 第三步
   \end{algorithmic}
 \end{algorithm}
+\subsection{代码展示} 
+可以把你的程序添加到附录里，展示自己的工作。
+\begin{lstlisting}[language={python}]
+def bin_search_recursively(l, first, last, n):
+  '''Binary search n in list l which has been sorted already, returns
+  the index if found, else returns None.'''
+  if first > last:
+    return None
 
+  mid = (first + last) // 2 # Use / 2 if you're using Python 2
+  if l[mid] > n:
+    return bin_search_recursively(l, first, mid - 1, n)
+  elif l[mid] < n:
+    return bin_search_recursively(l, mid + 1, last, n)
+  else:
+    return mid
+
+
+if __name__ == '__main__':
+  sorted_num_list = list(range(1, 11))
+  first = 0
+  last = len(sorted_num_list) - 1
+  n1 = 12
+  n2 = 6
+
+  print(bin_search_recursively(sorted_num_list, first, last, n1))
+  print(bin_search_recursively(sorted_num_list, first, last, n2))
+        
+\end{lstlisting}
 
 
 \chapter{简单帮助}

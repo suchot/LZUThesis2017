@@ -437,6 +437,32 @@
 \floatname{algorithm}{算法}  
 \renewcommand{\algorithmicrequire}{\textbf{输入:}}  
 \renewcommand{\algorithmicensure}{\textbf{输出:}}  
+
+
+
+
+%---------------------------
+%程序代码展示
+%---------------------------
+\RequirePackage{listings}
+\RequirePackage{courier}
+\lstset{
+    basicstyle=\rmfamily\normalsize,
+    rulesepcolor= \color{gray}, %代码块边框颜色
+    breaklines=true,  %代码过长则换行
+    numbers=left, %行号在左侧显示
+    numberstyle= \small,%行号字体
+    %keywordstyle= \color{red},%关键字颜色
+    commentstyle=\color{gray}, %注释颜色
+    frame=shadowbox,%用方框框住代码块
+    columns=flexible
+    }
+
+
+
+
+
+
   
 %改变图表的编号格式
 \renewcommand{\thefigure}{\thechapter-\@arabic\c@figure}
