@@ -290,7 +290,7 @@ FUNCTION {format.names}
 	      if$
 	      t "others" =
 		{ " {\em et.~al.}" * }
-		{ " and " * t * }
+		{ " ~" * t * }
 	      if$
 	    }
 	  if$
