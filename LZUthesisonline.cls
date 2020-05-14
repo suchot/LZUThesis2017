@@ -48,7 +48,7 @@
     \renewcommand{\headrulewidth}{0pt}
 
     \fancyfoot{} % clear all footer fields
-    \fancyfoot[LE,RO]{\thepage} %
+    \fancyfoot[C]{\thepage} %
     \renewcommand{\thepage}{\Roman{page}}
 }
 \appto\frontmatter{\pagestyle{frontmatterstyle}}
@@ -64,7 +64,7 @@
     \rhead{\zihao{-5}\@title}
     % Footers
     \fancyfoot{} % clear all footer fields
-    \fancyfoot[LE,RO]{\thepage}
+    \fancyfoot[C]{\thepage}
     \renewcommand\headrule{\hrule width \hsize height 2pt \kern 2pt \hrule width \hsize height 0.4pt}
 }
 
@@ -128,9 +128,9 @@
     \begin{center}
         \includegraphics[width=6cm]{lzu.bmp}\\
         \vspace*{58pt}
-        { \fontsize{28bp}{0pt}\ziju{1}\bfseries{\LZU@label@thesis\\}}
+        { \fontsize{28bp}{0pt}\ziju{1}\bfseries \heiti{\LZU@label@thesis\\}}
         \vspace{21.8pt}
-        {\zihao{4} \bf（本\ 科\ 生）}
+        {\zihao{4} \bf \heiti（本\ 科\ 生）}
         \par
         \zihao{4}
         \def\tabcolsep{6pt}
@@ -165,7 +165,7 @@
         \end{tabular}
         \par
         \vspace{70pt}
-        { \bf \ziju{0.3}\zihao{-4}\LZU@label@schooladdress }
+        { \bf \heiti \ziju{0.3}\zihao{-4}\LZU@label@schooladdress }
     \end{center}
     \clearpage
 }
@@ -229,8 +229,8 @@
 \newcommand{\ZhAbstract}[2]{%
     \phantomsection
     \addcontentsline{toc}{chapter}{中文摘要}
- %   \thispagestyle{frontmatterstyle}
-    \thispagestyle{empty}
+    \thispagestyle{frontmatterstyle}
+   % \thispagestyle{empty}
     \begin{center}%
         \setlength{\parskip}{24pt}
         \begin{minipage}{0.8\textwidth}
@@ -257,8 +257,8 @@
 \newcommand{\EnAbstract}[2]{%
     \phantomsection
     \addcontentsline{toc}{chapter}{英文摘要}
-    %\thispagestyle{frontmatterstyle}
-    \thispagestyle{empty}
+    \thispagestyle{frontmatterstyle}
+    % \thispagestyle{empty}
     \begin{center}%
         \setlength{\parskip}{24pt}
         \begin{minipage}{0.8\textwidth}
@@ -294,14 +294,22 @@
 %
 %=======appendix
 \newcommand{\Appendix}{%
+
     \setcounter{section}{0}
     \renewcommand{\thechapter}{A}%
+
+\clearpage
+\phantomsection		  
+											  
 	\addcontentsline{toc}{chapter}{附\qquad 录}
     \chapter*{附 \LZUspace\LZUspace 录}
     \zihao{5}
 }
 
 \newcommand{\Thanks}{%
+\clearpage
+\phantomsection			   
+										
 	\addcontentsline{toc}{chapter}{致\qquad 谢}
     \chapter*{致\LZUspace\LZUspace 谢}
     \zihao{-4}\fangsong
@@ -431,6 +439,30 @@
 \floatname{algorithm}{算法}  
 \renewcommand{\algorithmicrequire}{\textbf{输入:}}  
 \renewcommand{\algorithmicensure}{\textbf{输出:}}  
+
+
+
+%---------------------------
+%程序代码展示
+%---------------------------
+\RequirePackage{listings}
+\RequirePackage{courier}
+\lstset{
+    basicstyle=\rmfamily\normalsize,
+    rulesepcolor= \color{gray}, %代码块边框颜色
+    breaklines=true,  %代码过长则换行
+    numbers=left, %行号在左侧显示
+    numberstyle= \small,%行号字体
+    %keywordstyle= \color{red},%关键字颜色
+    commentstyle=\color{gray}, %注释颜色
+    frame=shadowbox,%用方框框住代码块
+    columns=flexible
+    }
+
+
+
+
+
   
 %改变图表的编号格式
 \renewcommand{\thefigure}{\thechapter-\@arabic\c@figure}
@@ -446,6 +478,8 @@
 \zihao{5}
 \bibliographystyle{lzubib}
 %\bibliographystyle{unsrt}
+\clearpage
+\phantomsection
 \addcontentsline{toc}{chapter}{参考文献}
 \bibliography{\the \bibdatabase}
 }
