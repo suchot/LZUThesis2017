@@ -83,7 +83,10 @@
 %标题样式
 %
 %=======format
-\usepackage[font=small]{caption}
+%\usepackage[font=small]{caption}
+\usepackage{caption2}
+  \renewcommand{\captionfont}{\zihao{5}  \songti} 
+
 
 \RequirePackage[titles]{tocloft}
 \renewcommand\cftchapdotsep{0.5} 				%虚线间隔
