@@ -33,6 +33,8 @@
 \setCJKfamilyfont{yahei}{微软雅黑}
 \RequirePackage[T1]{fontenc}
 
+\setCJKfamilyfont{zhsong}[AutoFakeBold = {2.17}]{SimSun}
+
 \RequirePackage{booktabs}
 
 %=======head and foot
@@ -236,14 +238,14 @@
         \begin{minipage}{0.8\textwidth}
             \linespread{1.3889}
             \centering
-            \zihao{3}\heiti\bfseries \noindent\@title\the\titlextra%
+            \bfseries\sffamily\zihao{3} \noindent\@title\the\titlextra%
         \end{minipage}
     \end{center}%
     \begin{center}%
         \linespread{1}
         \setlength{\parskip}{24pt}
 %        \zihao{3}\heiti \bfseries 摘\phantom{空}要   %  要求效果
-        \zihao{3}\heiti  中文摘要    				  %事例页面表现效果
+        \zihao{3}\heiti   中文摘要    				  %事例页面表现效果
     \end{center}%
     \linespread{1.3889}
     \selectfont
@@ -293,6 +295,13 @@
 %附录页和感谢页
 %
 %=======appendix
+\newcommand{\Intro}{%
+\clearpage
+\phantomsection			   
+										
+    \chapter*{引\LZUspace 言}
+}
+
 \newcommand{\Appendix}{%
 
     \setcounter{section}{0}
