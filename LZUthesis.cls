@@ -295,6 +295,13 @@
 %附录页和感谢页
 %
 %=======appendix
+\newcommand{\Intro}{%
+\clearpage
+\phantomsection			   
+										
+    \chapter*{引\LZUspace 言}
+}
+
 \newcommand{\Appendix}{%
 
     \setcounter{section}{0}

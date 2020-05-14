@@ -4,7 +4,7 @@
 \AtEndOfPackage{\input{LZU.cfg}}  %很关键的一个文件
 %                                          --基于 szsdk修改
 %  LZU.cls  ---thanks for  https://github.com/szsdk/LZUthesis/blob/master/LZU.cls
-
+%202.5.14 update --suchot
 %=======footnote
 %尾注
 %=======footnote
@@ -293,6 +293,12 @@
 %附录页和感谢页
 %
 %=======appendix
+\newcommand{\Intro}{%
+\clearpage
+\phantomsection			   
+										
+    \chapter*{引\LZUspace 言}
+}
 \newcommand{\Appendix}{%
 
     \setcounter{section}{0}
